@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./blocks/common.js":
+/*!**************************!*\
+  !*** ./blocks/common.js ***!
+  \**************************/
+/*! exports provided: category, domain */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"category\", function() { return category; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"domain\", function() { return domain; });\n// Default custom category\nvar category = 'my/blocks'; // Text Domain for @wordpress/i18n\n\nvar domain = 'my-domain';\n\n\n//# sourceURL=webpack:///./blocks/common.js?");
+
+/***/ }),
+
 /***/ "./blocks/example.jsx":
 /*!****************************!*\
   !*** ./blocks/example.jsx ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ \"@wordpress/i18n\");\n/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);\n\nvar domain = 'my-domain';\n\nvar Edit = function Edit(props) {\n  return wp.element.createElement(\"div\", null, wp.element.createElement(\"p\", null, \"Edit!\"));\n};\n\nvar Save = function Save(props) {\n  return wp.element.createElement(\"div\", null, wp.element.createElement(\"p\", null, \"Save!\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'my/example',\n  category: 'my/blocks',\n  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Example', domain),\n  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('An example block', domain),\n  keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Example', domain), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Custom', domain)],\n  attributes: {\n    text: {\n      type: 'string'\n    }\n  },\n  edit: Edit,\n  save: Save\n});\n\n//# sourceURL=webpack:///./blocks/example.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ \"@wordpress/i18n\");\n/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ \"./blocks/common.js\");\n\n\n\nvar Edit = function Edit(props) {\n  return wp.element.createElement(\"div\", null, wp.element.createElement(\"p\", null, \"Edit!\"));\n};\n\nvar Save = function Save(props) {\n  return wp.element.createElement(\"div\", null, wp.element.createElement(\"p\", null, \"Save!\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'my/example',\n  category: _common__WEBPACK_IMPORTED_MODULE_1__[\"category\"],\n  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Example', _common__WEBPACK_IMPORTED_MODULE_1__[\"domain\"]),\n  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('An example block', _common__WEBPACK_IMPORTED_MODULE_1__[\"domain\"]),\n  keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Example', _common__WEBPACK_IMPORTED_MODULE_1__[\"domain\"]), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__[\"__\"])('Custom', _common__WEBPACK_IMPORTED_MODULE_1__[\"domain\"])],\n  attributes: {\n    text: {\n      type: 'string'\n    }\n  },\n  edit: Edit,\n  save: Save\n});\n\n//# sourceURL=webpack:///./blocks/example.jsx?");
 
 /***/ }),
 
@@ -106,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wor
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name */ \"./node_modules/core-js/modules/es.function.name.js\");\n/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ \"@wordpress/blocks\");\n/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _example_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./example.jsx */ \"./blocks/example.jsx\");\n\n\n\nObject(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__[\"registerBlockType\"])(_example_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"].name, _example_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\n//# sourceURL=webpack:///./blocks/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name */ \"./node_modules/core-js/modules/es.function.name.js\");\n/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ \"@wordpress/blocks\");\n/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./example */ \"./blocks/example.jsx\");\n\n\n\nObject(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__[\"registerBlockType\"])(_example__WEBPACK_IMPORTED_MODULE_2__[\"default\"].name, _example__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\n//# sourceURL=webpack:///./blocks/index.js?");
 
 /***/ }),
 

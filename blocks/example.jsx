@@ -1,6 +1,5 @@
 import {__} from '@wordpress/i18n';
-
-const domain = 'my-domain';
+import {category, domain} from './common';
 
 const Edit = props => {
   return (
@@ -20,7 +19,7 @@ const Save = props => {
 
 export default {
   name: 'my/example',
-  category: 'my/blocks',
+  category: category,
   title: __('Example', domain),
   description: __('An example block', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
