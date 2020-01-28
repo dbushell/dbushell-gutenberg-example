@@ -1,12 +1,13 @@
 <?php
 /*
 Plugin Name: Gutenberg Example
-Description:
-Version: 0.1.0
-Author:
 Plugin URI: https://github.com/dbushell/gutenberg-example
+Description: Gutenberg Example
+Version: 0.1.0
+Author: David Bushell
 Text Domain: my-domain
 */
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( ! class_exists('My_Blocks') ) :
@@ -37,12 +38,12 @@ class My_Blocks {
   /**
    * Filter: `block_categories`
    */
-  public function block_categories() {
+  public function block_categories($categories, $post) {
     return array_merge(
       array(
         array(
           'slug'  => 'my/blocks',
-          'title' => __('Example Blocks', $this->domain),
+          'title' => __('My Blocks', $this->domain),
           'icon'  => null
         )
       ),
@@ -64,6 +65,8 @@ class My_Blocks {
       false,
       true
     );
+    wp_enqueue_script('my-blocks');
+  }
 }
 
 /**
