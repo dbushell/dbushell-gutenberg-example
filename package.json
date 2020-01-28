@@ -1,0 +1,38 @@
+{
+  "name": "gutenberg-example",
+  "version": "0.1.0",
+  "description": "Gutenberg blocks example #wordpress #react",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbushell/gutenberg-example.git"
+  },
+  "author": "David Bushell <david@dbushell.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dbushell/gutenberg-example/issues"
+  },
+  "homepage": "https://github.com/dbushell/gutenberg-example#readme",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "core-js": "^3.6.4"
+  }
+}
