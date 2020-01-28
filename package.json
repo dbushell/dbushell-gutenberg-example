@@ -4,7 +4,9 @@
   "description": "Gutenberg blocks example #wordpress #react",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack:dev": "npx webpack --mode development --debug",
+    "webpack:prod": "npx webpack --mode production",
+    "build": "npm run webpack:dev && npm run webpack:prod"
   },
   "repository": {
     "type": "git",
@@ -16,23 +18,16 @@
     "url": "https://github.com/dbushell/gutenberg-example/issues"
   },
   "homepage": "https://github.com/dbushell/gutenberg-example#readme",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": true
-          }
-        }
-      ],
-      "@babel/preset-react"
-    ]
-  },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "core-js": "^3.6.4"
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.6.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
