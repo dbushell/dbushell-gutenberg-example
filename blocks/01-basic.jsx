@@ -4,7 +4,7 @@ import {category, domain} from './common';
 const Edit = props => {
   return (
     <div>
-      <p>Edit!</p>
+      <p>Edit...</p>
     </div>
   );
 };
@@ -12,22 +12,18 @@ const Edit = props => {
 const Save = props => {
   return (
     <div>
-      <p>Save!</p>
+      <p>Save...</p>
     </div>
   );
 };
 
 export default {
-  name: 'my/example',
+  name: 'my/basic',
   category: category,
-  title: __('Example', domain),
-  description: __('An example block', domain),
+  title: __('01 - Basic', domain),
+  description: __('A basic MVP example block', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
-  attributes: {
-    text: {
-      type: 'string'
-    }
-  },
+  attributes: {},
   edit: Edit,
   save: Save
 };
