@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Gutenberg Example
-Plugin URI: https://github.com/dbushell/gutenberg-example
+Plugin URI: https://github.com/dbushell/dbushell-gutenberg-example
 Description: Gutenberg Example
 Version: 0.1.0
 Author: David Bushell

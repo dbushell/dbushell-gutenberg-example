@@ -1,5 +1,5 @@
 {
-  "name": "gutenberg-example",
+  "name": "dbushell-gutenberg-example",
   "version": "0.1.0",
   "description": "Gutenberg blocks example #wordpress #react",
   "main": "",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dbushell/gutenberg-example.git"
+    "url": "git+https://github.com/dbushell/dbushell-gutenberg-example.git"
   },
   "author": "David Bushell <david@dbushell.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dbushell/gutenberg-example/issues"
+    "url": "https://github.com/dbushell/dbushell-gutenberg-example/issues"
   },
-  "homepage": "https://github.com/dbushell/gutenberg-example#readme",
+  "homepage": "https://github.com/dbushell/dbushell-gutenberg-example#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
