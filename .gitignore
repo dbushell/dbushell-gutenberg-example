@@ -1,0 +1,8 @@
+/*
+!.gitignore
+!package.json
+!README.md
+!LICENSE
+!webpack.config.js
+!blocks
+!blocks-plugin

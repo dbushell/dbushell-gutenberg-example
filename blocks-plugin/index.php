@@ -13,6 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! class_exists('My_Blocks') ) :
 
 class My_Blocks {
+  // Default custom category
+  private $category = 'my-blocks';
+
+  // Text Domain for @wordpress/i18n
   private $domain = 'my-domain';
 
   function __construct() {
@@ -28,6 +32,13 @@ class My_Blocks {
     add_action(
       'enqueue_block_editor_assets',
       array($this, 'enqueue_block_editor_assets')
+    );
+    add_action('acf/init',
+      array($this, 'acf_init')
+    );
+    add_filter(
+      'acf/settings/load_json',
+      array($this, 'acf_settings_load_json')
     );
   }
 
@@ -66,6 +77,36 @@ class My_Blocks {
       true
     );
     wp_enqueue_script('my-blocks');
+  }
+
+  /**
+   * Action: `acf/init`
+   */
+  function acf_init() {
+    acf_register_block_type(array(
+      'name'        => 'my/acf',
+      'title'       => __('03 - ACF', $this->domain),
+      'description' => __('An ACF Text Field example block', $this->domain),
+      'category'    => $this->category,
+      'supports'    => array(
+        'align'           => false,
+        'customClassName' => false
+      ),
+      'render_callback' => function() {
+        // $args = func_get_args();
+        // var_dump($args);
+        echo '<p>Text Field: ' . get_field('text') . '</p>';
+      }
+    ));
+  }
+
+  /**
+   * Filter: `acf/settings/load_json`
+   */
+  public function acf_settings_load_json($paths) {
+    $dir = plugin_dir_path(__FILE__);
+    $paths[] = "{$dir}acf-json";
+    return $paths;
   }
 }
 

@@ -32,7 +32,7 @@ export default {
   name: 'my/text-control',
   category: category,
   title: __('02 - Text Control', domain),
-  description: __('A Text Control attribute example block', domain),
+  description: __('A Text Control example block', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
   attributes: {
     text: {
