@@ -4,4 +4,4 @@ Gutenberg blocks example #wordpress #react
 
 * * *
 
-MIT licensed | Copyright © 2020 [David Bushell](http://dbushell.com) | [@dbushell](http://twitter.com/dbushell)
+MIT licensed | Copyright © 2020 [David Bushell](https://dbushell.com) | [@dbushell](https://twitter.com/dbushell)
