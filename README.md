@@ -1,6 +1,6 @@
 # Gutenberg Example
 
-Gutenberg blocks example #wordpress #react
+Gutenberg block examples #wordpress #react
 
 * * *
 

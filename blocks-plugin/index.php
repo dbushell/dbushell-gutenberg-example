@@ -3,7 +3,7 @@
 Plugin Name: Gutenberg Example
 Plugin URI: https://github.com/dbushell/dbushell-gutenberg-example
 Description: Gutenberg Example
-Version: 0.1.0
+Version: 1.0.0
 Author: David Bushell
 Text Domain: my-domain
 */
@@ -30,6 +30,10 @@ class My_Blocks {
       10, 2
     );
     add_action(
+      'after_setup_theme',
+      array($this, 'after_setup_theme')
+    );
+    add_action(
       'enqueue_block_editor_assets',
       array($this, 'enqueue_block_editor_assets')
     );
@@ -53,7 +57,7 @@ class My_Blocks {
     return array_merge(
       array(
         array(
-          'slug'  => 'my/blocks',
+          'slug'  => $this->category,
           'title' => __('My Blocks', $this->domain),
           'icon'  => null
         )
@@ -63,26 +67,52 @@ class My_Blocks {
   }
 
   /**
+   * Action: `after_setup_theme`
+   */
+  public function after_setup_theme() {
+    // add_theme_support('editor-styles');
+    // add_editor_style(
+    //   plugins_url('my-blocks.css', __FILE__)
+    // );
+  }
+
+  /**
    * Action: `enqueue_block_editor_assets`
    */
-  function enqueue_block_editor_assets() {
+  public function enqueue_block_editor_assets() {
+    // $plugin = get_plugin_data(__FILE__);
+    // $version = $plugin['Version'];
+
+    $script = 'my-blocks' . ($this->is_debug() ? '' : '.min') . '.js';
+
     wp_register_script(
       'my-blocks',
       plugins_url(
-        'blocks' . ($this->is_debug() ? '' : '.min') . '.js',
+        $script,
         __FILE__
       ),
-      array('wp-editor', 'wp-blocks'),
-      false,
+      array('wp-blocks', 'wp-components', 'wp-editor', 'wp-i18n'),
+      filemtime(plugin_dir_path( __FILE__ ) . $script),
       true
     );
+
     wp_enqueue_script('my-blocks');
+
+    wp_register_style(
+      'my-blocks-admin',
+      plugins_url('my-blocks-admin.css', __FILE__),
+      array(),
+      filemtime(plugin_dir_path( __FILE__ ) . 'my-blocks-admin.css'),
+      'all'
+    );
+
+    wp_enqueue_style('my-blocks-admin');
   }
 
   /**
    * Action: `acf/init`
    */
-  function acf_init() {
+  public function acf_init() {
     acf_register_block_type(array(
       'name'        => 'my/acf',
       'title'       => __('03 - ACF', $this->domain),
@@ -95,7 +125,9 @@ class My_Blocks {
       'render_callback' => function() {
         // $args = func_get_args();
         // var_dump($args);
+        echo '<div class="my-block">';
         echo '<p>Text Field: ' . get_field('text') . '</p>';
+        echo '</div>';
       }
     ));
   }
@@ -125,3 +157,5 @@ function my_blocks() {
 my_blocks();
 
 endif;
+
+?>

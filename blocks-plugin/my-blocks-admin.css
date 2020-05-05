@@ -1,0 +1,7 @@
+/**!
+ * Gutenberg Block Examples
+ */
+
+.my-block h5:first-child {
+  margin-top: 0;
+}

@@ -1,3 +1,6 @@
+/**
+ * 01 - Basic
+ */
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';
 
@@ -11,7 +14,7 @@ const Edit = props => {
 
 const Save = props => {
   return (
-    <div>
+    <div className="my-block">
       <p>Save...</p>
     </div>
   );

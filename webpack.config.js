@@ -9,7 +9,8 @@ module.exports = (env, argv) => {
     entry: path.resolve(__dirname, 'blocks/index.js'),
     output: {
       path: path.resolve(__dirname, 'blocks-plugin'),
-      filename: argv.mode === 'development' ? 'blocks.js' : 'blocks.min.js'
+      filename:
+        argv.mode === 'development' ? 'my-blocks.js' : 'my-blocks.min.js'
     },
     externals: {
       wp: 'wp',
