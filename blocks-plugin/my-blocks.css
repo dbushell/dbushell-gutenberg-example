@@ -1,0 +1,20 @@
+/**!
+ * Gutenberg Block Examples
+ */
+
+.my-block {
+  background: #fff;
+  padding: 20px;
+}
+
+.my-block > * {
+  font-family: sans-serif !important;
+}
+
+.my-block > *:first-child {
+  margin-top: 0 !important;
+}
+
+.my-block > *:last-child {
+  margin-bottom: 0 !important;
+}

@@ -1,6 +1,7 @@
 /**
  * 02 - Text Control
  */
+import React from 'react';
 import {TextControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';

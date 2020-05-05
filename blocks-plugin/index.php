@@ -30,8 +30,8 @@ class My_Blocks {
       10, 2
     );
     add_action(
-      'after_setup_theme',
-      array($this, 'after_setup_theme')
+      'wp_enqueue_scripts',
+      array($this, 'enqueue_block_styles')
     );
     add_action(
       'enqueue_block_editor_assets',
@@ -67,13 +67,17 @@ class My_Blocks {
   }
 
   /**
-   * Action: `after_setup_theme`
+   * Action: `wp_enqueue_scripts`
    */
-  public function after_setup_theme() {
-    // add_theme_support('editor-styles');
-    // add_editor_style(
-    //   plugins_url('my-blocks.css', __FILE__)
-    // );
+  public function enqueue_block_styles() {
+    wp_register_style(
+      'my-blocks',
+      plugins_url('my-blocks.css', __FILE__),
+      array(),
+      filemtime(plugin_dir_path( __FILE__ ) . 'my-blocks.css'),
+      'all'
+    );
+    wp_enqueue_style('my-blocks');
   }
 
   /**
@@ -96,6 +100,16 @@ class My_Blocks {
       true
     );
 
+    wp_localize_script('my-blocks', 'myBlocks', array(
+      'scripts' => array(
+        plugins_url('my-blocks-iframe.js', __FILE__)
+      ),
+      'styles' => array(
+        get_stylesheet_directory_uri() . '/style.css',
+        plugins_url('my-blocks.css', __FILE__)
+      )
+    ));
+
     wp_enqueue_script('my-blocks');
 
     wp_register_style(
@@ -107,6 +121,8 @@ class My_Blocks {
     );
 
     wp_enqueue_style('my-blocks-admin');
+
+    $this->enqueue_block_styles();
   }
 
   /**

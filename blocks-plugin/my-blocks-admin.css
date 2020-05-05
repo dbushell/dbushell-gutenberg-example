@@ -2,6 +2,14 @@
  * Gutenberg Block Examples
  */
 
-.my-block h5:first-child {
-  margin-top: 0;
+.my-block-preview {
+  display: none;
+}
+
+.my-block-iframe {
+  border: 0;
+  display: block;
+  margin: 0;
+  min-width: 100%;
+  pointer-events: none;
 }

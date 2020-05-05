@@ -1,3 +1,4 @@
+import React from 'react';
 import {BlockControls} from '@wordpress/block-editor';
 import {Button, Toolbar} from '@wordpress/components';
 import {__} from '@wordpress/i18n';

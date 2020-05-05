@@ -1,23 +1,17 @@
 /**
  * 04 - Preview Mode
  */
+import React, {Fragment} from 'react';
 import {TextControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {category, domain, PreviewControls} from './common';
 
-const Edit = props => {
+export const EditDefault = props => {
   const {attributes, setAttributes} = props;
-
-  const isEditing = attributes.mode === 'edit';
-  const toggleMode = ev => {
-    setAttributes({mode: isEditing ? 'preview' : 'edit'});
-  };
-
   const handleChange = value => {
     setAttributes({text: value});
   };
-
-  const EditMode = (
+  return (
     <div>
       <TextControl
         type="text"
@@ -27,21 +21,37 @@ const Edit = props => {
       />
     </div>
   );
+};
 
-  const PreviewMode = (
+export const EditPreview = props => {
+  const {attributes} = props;
+  return (
     <div className="my-block">
       <h5>{__('Preview', domain)}</h5>
       <p>{`Text Control: ${attributes.text}`}</p>
     </div>
   );
-
-  return [
-    <PreviewControls isEditing={isEditing} onClick={toggleMode} />,
-    isEditing ? EditMode : PreviewMode
-  ];
 };
 
-const Save = props => {
+export const Edit = props => {
+  const {attributes, setAttributes} = props;
+
+  const isEditing = attributes.mode === 'edit';
+
+  const toggleMode = ev => {
+    setAttributes({mode: isEditing ? 'preview' : 'edit'});
+  };
+
+  return (
+    <Fragment>
+      <PreviewControls isEditing={isEditing} onClick={toggleMode} />
+      {isEditing ? <EditDefault {...props} /> : null}
+      {isEditing ? null : <EditPreview {...props} />}
+    </Fragment>
+  );
+};
+
+export const Save = props => {
   const {attributes} = props;
   return (
     <div className="my-block">
