@@ -2,6 +2,14 @@
 
 The blocks:
 
+  1. [Basic](/#01---basic)
+  2. [Text Control](/#02---text-control)
+  3. [ACF](/#03---acf)
+  4. [Preview Mode](/#04---preview-mode)
+  5. [IFrame Preview](/#05---iframe-preview)
+
+[The blocks plugin](/blocks-plugin/) handles the basics for adding a custom block category, enqueuing the necessary scripts and styles, and registering the ACF block.
+
 ## 01 - Basic
 
 
@@ -14,7 +22,7 @@ The blocks:
 
 ## 05 - IFrame Preview
 
-### Docker WordPress Scripts
+## Docker WordPress Scripts
 
 Need a quick way to spin up WordPress for local development?
 
