@@ -6,16 +6,16 @@ import {TextControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {category, domain, PreviewControls} from './common';
 
-export const EditDefault = props => {
+export const BlockEditDefault = props => {
   const {attributes, setAttributes} = props;
   const handleChange = value => {
     setAttributes({text: value});
   };
   return (
-    <div>
+    <div className="my-block">
       <TextControl
         type="text"
-        label={__('Text Control', domain)}
+        label={__('Say hello', domain)}
         value={attributes.text}
         onChange={handleChange}
       />
@@ -23,40 +23,27 @@ export const EditDefault = props => {
   );
 };
 
-export const EditPreview = props => {
+export const BlockSave = props => {
   const {attributes} = props;
   return (
     <div className="my-block">
-      <h5>{__('Preview', domain)}</h5>
-      <p>{`Text Control: ${attributes.text}`}</p>
+      <p>{attributes.text}</p>
     </div>
   );
 };
 
-export const Edit = props => {
+export const BlockEdit = props => {
   const {attributes, setAttributes} = props;
-
   const isEditing = attributes.mode === 'edit';
-
   const toggleMode = ev => {
     setAttributes({mode: isEditing ? 'preview' : 'edit'});
   };
-
   return (
     <Fragment>
       <PreviewControls isEditing={isEditing} onClick={toggleMode} />
-      {isEditing ? <EditDefault {...props} /> : null}
-      {isEditing ? null : <EditPreview {...props} />}
+      {isEditing ? <BlockEditDefault {...props} /> : null}
+      {isEditing ? null : <BlockSave {...props} />}
     </Fragment>
-  );
-};
-
-export const Save = props => {
-  const {attributes} = props;
-  return (
-    <div className="my-block">
-      <p>{`Text Control: ${attributes.text}`}</p>
-    </div>
   );
 };
 
@@ -72,13 +59,13 @@ export default {
   attributes: {
     text: {
       type: 'string',
-      default: ''
+      default: __('Hello, Gutenberg!', domain)
     },
     mode: {
       type: 'string',
       default: 'edit'
     }
   },
-  edit: Edit,
-  save: Save
+  edit: BlockEdit,
+  save: BlockSave
 };

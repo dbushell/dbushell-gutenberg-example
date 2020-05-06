@@ -1,10 +1,10 @@
 {
     "key": "group_5ead40fadab86",
-    "title": "03 - ACF (block)",
+    "title": "03 - ACF",
     "fields": [
         {
             "key": "field_5ead41619153f",
-            "label": "ACF Text Field",
+            "label": "Say hello",
             "name": "text",
             "type": "text",
             "instructions": "",
@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Hello, Gutenberg!",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588412784
+    "modified": 1588748986
 }

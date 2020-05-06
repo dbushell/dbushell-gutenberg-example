@@ -1,5 +1,8 @@
 /**!
- * Gutenberg Block Examples
+ * WordPress Gutenberg Example Blocks
+ * CSS for admin and front-end hooks:
+ *  - `wp_enqueue_scripts`
+ *  - `enqueue_block_editor_assets`
  */
 
 .my-block {

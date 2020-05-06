@@ -141,8 +141,10 @@ class My_Blocks {
       'render_callback' => function() {
         // $args = func_get_args();
         // var_dump($args);
+        $text = get_field('text');
+        $text = esc_html($text);
         echo '<div class="my-block">';
-        echo '<p>Text Field: ' . get_field('text') . '</p>';
+        echo "<p>{$text}</p>";
         echo '</div>';
       }
     ));

@@ -5,18 +5,10 @@ import React from 'react';
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';
 
-const Edit = props => {
-  return (
-    <div>
-      <p>Edit...</p>
-    </div>
-  );
-};
-
-const Save = props => {
+const Block = props => {
   return (
     <div className="my-block">
-      <p>Save...</p>
+      <p>{__('Hello, Gutenberg!', domain)}</p>
     </div>
   );
 };
@@ -28,6 +20,6 @@ export default {
   description: __('An MVP example block', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
   attributes: {},
-  edit: Edit,
-  save: Save
+  edit: Block,
+  save: Block
 };

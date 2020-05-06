@@ -7,9 +7,9 @@ import {__} from '@wordpress/i18n';
 import {category, domain, PreviewControls} from './common';
 
 // Reuse components from "Preview Mode" example
-import {EditDefault, EditPreview, Save} from './04-preview-mode';
+import {BlockEditDefault, BlockSave} from './04-preview-mode';
 
-const EditIFrame = props => {
+const BlockEditIFrame = props => {
   const ref = useRef();
   const {attributes, clientId} = props;
 
@@ -60,13 +60,13 @@ const EditIFrame = props => {
   return (
     <div ref={ref}>
       <div className="my-block-preview">
-        <EditPreview {...props} />
+        <BlockSave {...props} />
       </div>
     </div>
   );
 };
 
-const Edit = props => {
+const BlockEdit = props => {
   const {attributes, setAttributes} = props;
 
   const isEditing = attributes.mode === 'edit';
@@ -78,8 +78,8 @@ const Edit = props => {
   return (
     <Fragment>
       <PreviewControls isEditing={isEditing} onClick={toggleMode} />
-      {isEditing ? <EditDefault {...props} /> : null}
-      {isEditing ? null : <EditIFrame {...props} />}
+      {isEditing ? <BlockEditDefault {...props} /> : null}
+      {isEditing ? null : <BlockEditIFrame {...props} />}
     </Fragment>
   );
 };
@@ -93,15 +93,15 @@ export default {
   attributes: {
     text: {
       type: 'string',
-      default: ''
+      default: __('Hello, Gutenberg!', domain)
     },
     mode: {
       type: 'string',
       default: 'edit'
     }
   },
-  edit: Edit,
-  save: Save
+  edit: BlockEdit,
+  save: BlockSave
 };
 
 window.addEventListener('message', ({data}) => {

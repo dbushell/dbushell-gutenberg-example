@@ -1,11 +1,15 @@
 /**!
- * Gutenberg Block Examples
+ * WordPress Gutenberg Example Blocks
+ * CSS for admin hook:
+ *   - `enqueue_block_editor_assets`
  */
 
+/* Hide element used to render HTML for `<iframe>` preview */
 .my-block-preview {
   display: none;
 }
 
+/* The `<iframe>` used to render block previews */
 .my-block-iframe {
   border: 0;
   display: block;
