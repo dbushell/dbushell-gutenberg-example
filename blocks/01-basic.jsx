@@ -17,7 +17,7 @@ export default {
   name: 'my/basic',
   category: category,
   title: __('01 - Basic', domain),
-  description: __('An MVP example block', domain),
+  description: __('A basic Gutenberg block example', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
   attributes: {},
   edit: Block,

@@ -52,7 +52,7 @@ export default {
   category: category,
   title: __('04 - Preview Mode', domain),
   description: __(
-    'An example block that can toggle between "Edit" and "Preview" mode',
+    'A Gutenberg block example with an edit/preview toggle',
     domain
   ),
   keywords: [__('Example', domain), __('Custom', domain)],

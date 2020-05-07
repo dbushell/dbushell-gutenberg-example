@@ -36,7 +36,7 @@ export default {
   name: 'my/text-control',
   category: category,
   title: __('02 - Text Control', domain),
-  description: __('A Text Control example block', domain),
+  description: __('A Gutenberg block example with a Text Control', domain),
   keywords: [__('Example', domain), __('Custom', domain)],
   attributes: {
     text: {

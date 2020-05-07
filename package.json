@@ -1,7 +1,7 @@
 {
   "name": "dbushell-gutenberg-example",
   "version": "0.1.0",
-  "description": "WordPress Gutenberg Example Blocks",
+  "description": "WordPress Gutenberg example blocks #wordpress #react",
   "main": "",
   "scripts": {
     "webpack:dev": "npx webpack --mode development --debug",

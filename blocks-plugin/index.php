@@ -132,7 +132,7 @@ class My_Blocks {
     acf_register_block_type(array(
       'name'        => 'my/acf',
       'title'       => __('03 - ACF', $this->domain),
-      'description' => __('An ACF Text Field example block', $this->domain),
+      'description' => __('A Gutenberg block example registered with the ACF plugin', $this->domain),
       'category'    => $this->category,
       'supports'    => array(
         'align'           => false,
