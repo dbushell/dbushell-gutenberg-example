@@ -1,6 +1,6 @@
 # WordPress Gutenberg Example Blocks
 
-The blocks:
+### The Blocks
 
   1. [Basic](#01---basic)
   2. [Text Control](#02---text-control)
