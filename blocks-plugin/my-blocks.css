@@ -7,7 +7,11 @@
 
 .my-block {
   background: #fff;
-  padding: 20px;
+  padding: 16px 20px;
+}
+
+.my-block-template {
+  background: #fff;
 }
 
 .my-block > * {

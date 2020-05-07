@@ -43,6 +43,30 @@ The second example takes the basic block and makes the content editable. The Gut
 
 The third example takes a detour away from React. It uses the [Advanced Custom Fields (ACF) plugin](https://www.advancedcustomfields.com/) to register the block with PHP.
 
+See ["Notes on ACF"](#notes-on-acf) below for more information.
+
+## 04 - Preview Mode
+
+![A Gutenberg block example with an edit/preview toggle](/.github/gutenberg-04-preview-mode.gif)
+
+The fourth example — inspired by ACF — moves back to React and adds an edit/preview toggle to the text control block. This allows the front-end block render to be visible in the Gutenberg editor.
+
+## 05 - IFrame Preview
+
+🧪 **Experimental!** ✨
+
+The fifth example renders the block preview inside an iframe in the Gutenberg editor. CSS and JavaScript are effectively scoped to avoid conflicts with the unknown WordPress admin assets. The iframe automatically resizes based on its content height.
+
+## 06 - Block Template
+
+🧪 **Experimental!** ✨
+
+The sixth example implements a [block template](https://developer.wordpress.org/block-editor/developers/block-api/block-templates/) to combine a React block and an ACF block. The [`render_block` filter](https://developer.wordpress.org/reference/functions/render_block/) is hooked into to provide a single PHP template using attributes from both blocks.
+
+[See my blog article](https://dbushell.com/2020/04/24/wordpress-gutenberg-react-and-advanced-custom-fields/) for the rational behind this method.
+
+## Notes on ACF
+
 The advantages of ACF blocks are:
 
   * Built in edit/preview toggle in the Gutenberg editor
@@ -61,26 +85,6 @@ Possible pros and cons depending on requirements:
   * HTML is not saved to the post content (only JSON encoded block data)
   * Block preview requires a slower server-side render
   * The [ACF plugin](https://www.advancedcustomfields.com/) dependency must be activated
-
-## 04 - Preview Mode
-
-![A Gutenberg block example with an edit/preview toggle](/.github/gutenberg-04-preview-mode.gif)
-
-The fourth example — inspired by ACF — adds an edit/preview toggle to the text control block. This allows the front-end block render to be visible in the Gutenberg editor.
-
-## 05 - IFrame Preview
-
-**🧪 Experimental!**
-
-The fifth example renders the block preview inside an iframe in the Gutenberg editor. CSS and JavaScript are effectively scoped to avoid conflicts with the unknown WordPress admin assets. The iframe automatically resizes based on its content height.
-
-## 06 - ACF & React Template
-
-**🧪 Experimental!**
-
-[Based on my blog article](https://dbushell.com/2020/04/24/wordpress-gutenberg-react-and-advanced-custom-fields/).
-
-Coming soon...
 
 * * *
 

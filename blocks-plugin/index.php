@@ -40,6 +40,10 @@ class My_Blocks {
     add_action('acf/init',
       array($this, 'acf_init')
     );
+    add_filter('render_block',
+      array($this, 'render_block_template'),
+      10, 2
+    );
     add_filter(
       'acf/settings/load_json',
       array($this, 'acf_settings_load_json')
@@ -129,25 +133,50 @@ class My_Blocks {
    * Action: `acf/init`
    */
   public function acf_init() {
+    // Register the ACF block example
     acf_register_block_type(array(
-      'name'        => 'my/acf',
-      'title'       => __('03 - ACF', $this->domain),
-      'description' => __('A Gutenberg block example registered with the ACF plugin', $this->domain),
-      'category'    => $this->category,
-      'supports'    => array(
+      'name'            => 'my/acf',
+      'title'           => __('03 - ACF', $this->domain),
+      'description'     => __('A Gutenberg block example registered with the ACF plugin', $this->domain),
+      'render_template' => plugin_dir_path(__FILE__) . 'templates/03-acf.php',
+      'category'        => $this->category,
+      'supports'        => array(
         'align'           => false,
         'customClassName' => false
       ),
-      'render_callback' => function() {
-        // $args = func_get_args();
-        // var_dump($args);
-        $text = get_field('text');
-        $text = esc_html($text);
-        echo '<div class="my-block">';
-        echo "<p>{$text}</p>";
-        echo '</div>';
-      }
     ));
+    // Register the ACF inner block for the Block Template example
+    acf_register_block_type(array(
+      'name'        => 'my/acf-inner',
+      'title'       => __('06 - Block Template (ACF)', $this->domain),
+      'description' => __('An ACF inner block for templates', $this->domain),
+      'category'    => $this->category,
+      'parent'      => array('my/block-template'),
+      'mode'        => 'edit',
+      'supports'    => array(
+        'mode'            => false,
+        'align'           => false,
+        'customClassName' => false,
+        'inserter'        => false,
+        'reusable'        => false
+      ),
+    ));
+  }
+
+  /**
+   * Filter: `render_block`
+   */
+  public function render_block_template($html, $block) {
+    if ($block['blockName'] !== 'my/block-template') {
+      return $html;
+    }
+    ob_start();
+    $path = plugin_dir_path(__FILE__);
+    $path .= 'templates/06-block-template.php';
+    include($path);
+    $html = ob_get_contents();
+    ob_end_clean();
+    return $html;
   }
 
   /**

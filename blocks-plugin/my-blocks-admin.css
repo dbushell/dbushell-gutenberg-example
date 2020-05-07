@@ -17,3 +17,8 @@
   min-width: 100%;
   pointer-events: none;
 }
+
+/* Remove border on block template inner block fields */
+.my-block-template .acf-block-body .acf-block-fields {
+  border: 0;
+}
