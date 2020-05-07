@@ -33,7 +33,7 @@ The second example takes the basic block and makes the content editable. The Gut
 
 ## 03 - ACF
 
-![A Gutenberg block example registered with the Advanced Custom Fields plugin](/.github/gutenberg-02-text-control.png)
+![A Gutenberg block example registered with the ACF plugin](/.github/gutenberg-03-acf.gif)
 
 The third example takes a detour away from React. It instead uses the [Advanced Custom Fields (ACF) plugin](https://www.advancedcustomfields.com/) and registers the block with PHP.
 
@@ -43,7 +43,7 @@ The advantages of ACF blocks are:
   * Render blocks with PHP templates (easy access to WordPress functions)
   * ACF admin UI to configure fields (screenshot below)
 
-![A Gutenberg block example registered with the ACF plugin](gutenberg-03-acf-configuration.png)
+![A Gutenberg block example registered with the ACF plugin](/.github/gutenberg-03-acf-configuration.png)
 
 The disadvantages of ACF blocks are:
 
