@@ -1,5 +1,5 @@
 /**
- * 01 - Basic
+ * 06 - Block Template
  */
 import React from 'react';
 import {InnerBlocks} from '@wordpress/block-editor';

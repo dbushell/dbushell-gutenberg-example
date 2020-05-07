@@ -13,7 +13,7 @@ Follow [my blog](https://dbushell.com/blog/) and [@dbushell](https://twitter.com
   3. [ACF](#03---acf)
   4. [Preview Mode](#04---preview-mode)
   5. [IFrame Preview](#05---iframe-preview)
-  6. [ACF & React Template](#06---acf--react-template)
+  6. [Block Template](#06---block-template)
 
 ### The Blocks Plugin
 
