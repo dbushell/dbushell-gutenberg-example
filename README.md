@@ -7,7 +7,7 @@
   3. [ACF](#03---acf)
   4. [Preview Mode](#04---preview-mode)
   5. [IFrame Preview](#05---iframe-preview)
-  6. [ACF & React Template](#06---acf-react-template)
+  6. [ACF & React Template](#06---acf--react-template)
 
 ### The Blocks Plugin
 
@@ -17,13 +17,13 @@
   * Enqueuing the necessary scripts and styles
   * Registering the ACF block
 
-I've made this plugin so these examples are easy to test. For theme development similar code can be used in the standard WordPress [theme functions](https://developer.wordpress.org/themes/basics/theme-functions/).
+I've made this plugin so the examples are easy to try out. For theme development similar code can be used in the standard WordPress [theme functions](https://developer.wordpress.org/themes/basics/theme-functions/).
 
 ## 01 - Basic
 
 ![A basic Gutenberg block example](/.github/gutenberg-01-basic.png)
 
-The first example is the most basic of Gutenberg blocks created with React. The editor and front-end render the same uneditable content.
+The first example is the most basic of Gutenberg blocks created with React. The editor and front-end render the same uneditable content. The block has no functionality.
 
 ## 02 - Text Control
 
@@ -35,7 +35,7 @@ The second example takes the basic block and makes the content editable. The Gut
 
 ![A Gutenberg block example registered with the ACF plugin](/.github/gutenberg-03-acf.gif)
 
-The third example takes a detour away from React. It instead uses the [Advanced Custom Fields (ACF) plugin](https://www.advancedcustomfields.com/) and registers the block with PHP.
+The third example takes a detour away from React. It uses the [Advanced Custom Fields (ACF) plugin](https://www.advancedcustomfields.com/) to register the block with PHP.
 
 The advantages of ACF blocks are:
 
@@ -48,11 +48,11 @@ The advantages of ACF blocks are:
 The disadvantages of ACF blocks are:
 
   * Limited control over field layout in the editor
-  * No access to the lower level React components
+  * No access to the lower level React components and APIs
 
 Possible pros and cons depending on requirements:
 
-  * HTML is not saved to the post content, only JSON encoded block data
+  * HTML is not saved to the post content (only JSON encoded block data)
   * Block preview requires a slower server-side render
   * The [ACF plugin](https://www.advancedcustomfields.com/) dependency must be activated
 
@@ -60,13 +60,13 @@ Possible pros and cons depending on requirements:
 
 ![A Gutenberg block example with an edit/preview toggle](/.github/gutenberg-04-preview-mode.gif)
 
-The fourth example, inspired by ACF, adds an edit/preview toggle to the text control block.
+The fourth example — inspired by ACF — adds an edit/preview toggle to the text control block. This allows the front-end block render to be visible in the Gutenberg editor.
 
 ## 05 - IFrame Preview
 
 **🧪 Experimental!**
 
-The fifth example renders the block preview inside an iframe in the Gutenberg editor. CSS and JavaScript are effectively scoped to avoid conflicts with the unknown WordPress admin assets.
+The fifth example renders the block preview inside an iframe in the Gutenberg editor. CSS and JavaScript are effectively scoped to avoid conflicts with the unknown WordPress admin assets. The iframe automatically resizes based on its content height.
 
 ## 06 - ACF & React Template
 
