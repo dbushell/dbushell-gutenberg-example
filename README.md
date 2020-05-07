@@ -7,24 +7,33 @@ The blocks:
   3. [ACF](#03---acf)
   4. [Preview Mode](#04---preview-mode)
   5. [IFrame Preview](#05---iframe-preview)
+  6. [ACF & React Template](#06---acf-react-template)
 
-[The blocks plugin](/blocks-plugin/) handles the basics for adding a custom block category, enqueuing the necessary scripts and styles, and registering the ACF block.
+### The Blocks Plugin
 
-### 01 - Basic
+[The blocks plugin](/blocks-plugin/) handles the basics for:
 
-![A basic Gutenberg block example](./github/gutenberg-01-basic.png)
+  * Adding a custom block category
+  * Enqueuing the necessary scripts and styles
+  * Registering the ACF block
+
+I've made this plugin so these examples are easy to test. For theme development similar code can be used in the standard WordPress [theme functions](https://developer.wordpress.org/themes/basics/theme-functions/).
+
+## 01 - Basic
+
+![A basic Gutenberg block example](/.github/gutenberg-01-basic.png)
 
 The first example is the most basic of Gutenberg blocks created with React. The editor and front-end render the same uneditable content.
 
-### 02 - Text Control
+## 02 - Text Control
 
-![A Gutenberg block example with a Text Control](./github/gutenberg-02-text-control.png)
+![A Gutenberg block example with a Text Control](/.github/gutenberg-02-text-control.png)
 
 The second example takes the basic block and makes the content editable. The Gutenberg editor renders a [text control](https://github.com/WordPress/gutenberg/tree/master/packages/components/src/text-control) that updates the related [block attribute](https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/). The front-end renders the block using the `text` attribute value.
 
-### 03 - ACF
+## 03 - ACF
 
-![A Gutenberg block example registered with the Advanced Custom Fields plugin](./github/gutenberg-02-text-control.png)
+![A Gutenberg block example registered with the Advanced Custom Fields plugin](/.github/gutenberg-02-text-control.png)
 
 The third example takes a detour away from React. It instead uses the [Advanced Custom Fields (ACF) plugin](https://www.advancedcustomfields.com/) and registers the block with PHP.
 
@@ -47,19 +56,19 @@ Possible pros and cons depending on requirements:
   * Block preview requires a slower server-side render
   * The [ACF plugin](https://www.advancedcustomfields.com/) dependency must be activated
 
-### 04 - Preview Mode
+## 04 - Preview Mode
 
-![A Gutenberg block example with an edit/preview toggle](./github/gutenberg-04-preview-mode.gif)
+![A Gutenberg block example with an edit/preview toggle](/.github/gutenberg-04-preview-mode.gif)
 
 The fourth example, inspired by ACF, adds an edit/preview toggle to the text control block.
 
-### 05 - IFrame Preview
+## 05 - IFrame Preview
 
 **🧪 Experimental!**
 
 The fifth example renders the block preview inside an iframe in the Gutenberg editor. CSS and JavaScript are effectively scoped to avoid conflicts with the unknown WordPress admin assets.
 
-### 06 - ACF/React Templates
+## 06 - ACF & React Template
 
 **🧪 Experimental!**
 
