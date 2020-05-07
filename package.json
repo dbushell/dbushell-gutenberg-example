@@ -2,7 +2,7 @@
   "name": "dbushell-gutenberg-example",
   "version": "0.1.0",
   "description": "WordPress Gutenberg example blocks #wordpress #react",
-  "main": "",
+  "main": "webpack.config.js",
   "scripts": {
     "webpack:dev": "npx webpack --mode development --debug",
     "webpack:prod": "npx webpack --mode production",
@@ -15,18 +15,19 @@
   "author": "David Bushell <david@dbushell.com>",
   "license": "MIT",
   "keywords": [
-    "docker",
-    "wordpress",
-    "gutenberg",
-    "blocks",
-    "react",
     "acf",
-    "advanced custom fields"
+    "advanced custom fields",
+    "blocks",
+    "docker",
+    "gutenberg",
+    "react",
+    "wordpress"
   ],
   "bugs": {
     "url": "https://github.com/dbushell/dbushell-gutenberg-example/issues"
   },
   "homepage": "https://github.com/dbushell/dbushell-gutenberg-example#readme",
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
