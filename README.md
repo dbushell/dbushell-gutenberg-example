@@ -25,6 +25,8 @@ Follow [my blog](https://dbushell.com/blog/) and [@dbushell](https://twitter.com
 
 I've made this plugin so the examples are easy to try out. For theme development similar code can be used in the standard WordPress [theme functions](https://developer.wordpress.org/themes/basics/theme-functions/).
 
+See ["Notes on Webpack"](#notes-on-webpack) below for more information.
+
 ## 01 - Basic
 
 ![A basic Gutenberg block example](/.github/gutenberg-01-basic.png)
@@ -64,6 +66,32 @@ The fifth example renders the block preview inside an iframe in the Gutenberg ed
 The sixth example implements a [block template](https://developer.wordpress.org/block-editor/developers/block-api/block-templates/) to combine a React block and an ACF block. The [`render_block` filter](https://developer.wordpress.org/reference/functions/render_block/) is hooked into to provide a single PHP template using attributes from both blocks.
 
 [See my blog article](https://dbushell.com/2020/04/24/wordpress-gutenberg-react-and-advanced-custom-fields/) for the rational behind this method.
+
+* * *
+
+## Notes on Webpack
+
+This project includes a [Webpack](https://webpack.js.org/) config file to compile the React source code from `/blocks/`.
+
+This can be run with:
+
+```
+npm install
+npm run build
+```
+
+See `package.json` for full commands.
+
+Both development and production modes are generated to:
+
+```
+/blocks-plugin/my-blocks.js
+/blocks-plugin/my-blocks.min.js
+```
+
+The WordPress plugin will automatically switch to loading the dev mode unminified version if `WP_DEBUG` is defined and `true`.
+
+* * *
 
 ## Notes on ACF
 
