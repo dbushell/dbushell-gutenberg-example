@@ -13,7 +13,11 @@ const domain = 'my-domain';
 const PreviewControls = props => {
   const {onClick} = props;
   const PreviewButton = (
-    <Button label={__('Preview', domain)} icon="visibility" onClick={onClick} />
+    <Button
+      label={__('Preview', domain)}
+      icon="welcome-view-site"
+      onClick={onClick}
+    />
   );
   const EditButton = (
     <Button label={__('Edit', domain)} icon="edit" onClick={onClick} />
