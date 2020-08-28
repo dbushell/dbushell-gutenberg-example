@@ -41,8 +41,8 @@
     "webpack-cli": "^3.3.11"
   },
   "dws": {
-    "name": "dbushell-gutenberg-example",
-    "hostname": "dbushell-gutenberg-example.localhost",
+    "name": "gutenberg-example",
+    "hostname": "gutenberg-example.localhost",
     "title": "WordPress Demo"
   }
 }

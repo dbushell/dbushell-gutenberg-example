@@ -1,48 +1,53 @@
 (function () {
-  // Feature detection
-  var isObservable = 'ResizeObserver' in window;
+  // Reference node
+  var $preview;
 
-  // Remove body margin
-  document.body.style.margin = '0px';
-
-  // Get block preview node
-  const $preview = document.querySelector('.my-block-preview');
-  if (!$preview) {
-    return;
+  function onReady() {
+    if ('ResiazeObserver' in window) {
+      // Use observer events for optimal performance
+      function onResize(entries) {
+        entries.forEach(function resize(entry) {
+          window.parent.postMessage(
+            {
+              iframe: $preview.dataset.id,
+              height: entry.contentRect.height
+            },
+            '*'
+          );
+        });
+      }
+      var observer = new window.ResizeObserver(onResize);
+      observer.observe($preview);
+    } else {
+      // Fallback to window resize event
+      function onResize() {
+        window.parent.postMessage(
+          {
+            iframe: $preview.dataset.id,
+            height: $preview.getBoundingClientRect().height
+          },
+          '*'
+        );
+      }
+      window.addEventListener('resize', onResize);
+      window.setTimeout(onResize, 100);
+      onResize();
+    }
   }
 
-  // Use absolute position to contain margins
-  $preview.style.position = 'absolute';
-  $preview.style.width = '100%';
-
-  // Callback to pass the block height to parent window
-  function resizeMessage(height) {
-    window.parent.postMessage(
-      {
-        blockId: window.frameElement.getAttribute('data-block'),
-        height: height
-      },
-      '*'
-    );
+  // Call ready event after reference node has been found
+  var now = Date.now();
+  function onFrame() {
+    // Give up after five seconds
+    if (Date.now() - now > 5000) {
+      return;
+    }
+    $preview = document.querySelector('.my-block-preview');
+    if ($preview) {
+      onReady();
+    } else {
+      window.requestAnimationFrame(onFrame);
+    }
   }
-
-  // Use `ResizeObserver` if supported by browser
-  if (isObservable) {
-    var observer = new ResizeObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var rect = $preview.getBoundingClientRect();
-        resizeMessage(entry.contentRect.height);
-      });
-    });
-    observer.observe($preview);
-    return;
-  }
-
-  // Fallback to `resize` event for older browsers
-  function onResize(ev) {
-    var rect = $preview.getBoundingClientRect();
-    resizeMessage(rect.height);
-  }
-  window.addEventListener('resize', onResize);
-  onResize();
+  onFrame();
 })();

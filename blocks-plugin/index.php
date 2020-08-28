@@ -3,7 +3,7 @@
 Plugin Name: Gutenberg Example
 Plugin URI: https://github.com/dbushell/dbushell-gutenberg-example
 Description: Gutenberg Example
-Version: 1.0.0
+Version: 1.0.1
 Author: David Bushell
 Text Domain: my-domain
 */
