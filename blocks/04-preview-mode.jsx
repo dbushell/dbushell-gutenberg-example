@@ -6,15 +6,15 @@ import {TextControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {category, domain, PreviewControls} from './common';
 
-export const BlockEditDefault = props => {
+export const BlockEditDefault = (props) => {
   const {attributes, setAttributes} = props;
-  const handleChange = value => {
+  const handleChange = (value) => {
     setAttributes({text: value});
   };
   return (
-    <div className="my-block">
+    <div className='my-block'>
       <TextControl
-        type="text"
+        type='text'
         label={__('Say hello', domain)}
         value={attributes.text}
         onChange={handleChange}
@@ -23,19 +23,19 @@ export const BlockEditDefault = props => {
   );
 };
 
-export const BlockSave = props => {
+export const BlockSave = (props) => {
   const {attributes} = props;
   return (
-    <div className="my-block">
+    <div className='my-block'>
       <p>{attributes.text}</p>
     </div>
   );
 };
 
-export const BlockEdit = props => {
+export const BlockEdit = (props) => {
   const {attributes, setAttributes} = props;
   const isEditing = attributes.mode === 'edit';
-  const toggleMode = ev => {
+  const toggleMode = (ev) => {
     setAttributes({mode: isEditing ? 'preview' : 'edit'});
   };
   return (

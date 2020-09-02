@@ -6,15 +6,15 @@ import {TextControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';
 
-const BlockEdit = props => {
+const BlockEdit = (props) => {
   const {attributes, setAttributes} = props;
-  const handleChange = value => {
+  const handleChange = (value) => {
     setAttributes({text: value});
   };
   return (
-    <div className="my-block">
+    <div className='my-block'>
       <TextControl
-        type="text"
+        type='text'
         label={__('Say hello', domain)}
         value={attributes.text}
         onChange={handleChange}
@@ -23,10 +23,10 @@ const BlockEdit = props => {
   );
 };
 
-const BlockSave = props => {
+const BlockSave = (props) => {
   const {attributes} = props;
   return (
-    <div className="my-block">
+    <div className='my-block'>
       <p>{attributes.text}</p>
     </div>
   );

@@ -3,7 +3,7 @@
 Plugin Name: Gutenberg Example
 Plugin URI: https://github.com/dbushell/dbushell-gutenberg-example
 Description: Gutenberg Example
-Version: 1.0.1
+Version: 1.0.2
 Author: David Bushell
 Text Domain: my-domain
 */
@@ -29,6 +29,9 @@ class My_Blocks {
       array($this, 'block_categories'),
       10, 2
     );
+    add_action('acf/init',
+      array($this, 'acf_init')
+    );
     add_action(
       'wp_enqueue_scripts',
       array($this, 'enqueue_block_styles')
@@ -37,13 +40,19 @@ class My_Blocks {
       'enqueue_block_editor_assets',
       array($this, 'enqueue_block_editor_assets')
     );
-    add_action('acf/init',
-      array($this, 'acf_init')
+    add_action(
+      'wp_head',
+      array($this, 'wp_head')
+    );
+    add_filter(
+      'template_include',
+      array($this, 'template_include')
     );
     add_filter('render_block',
       array($this, 'render_block_template'),
       10, 2
     );
+
     add_filter(
       'acf/settings/load_json',
       array($this, 'acf_settings_load_json')
@@ -94,6 +103,19 @@ class My_Blocks {
     $script = 'my-blocks' . ($this->is_debug() ? '' : '.min') . '.js';
 
     wp_register_script(
+      'my-blocks-admin',
+      plugins_url(
+        'my-blocks-admin.js',
+        __FILE__
+      ),
+      array(),
+      filemtime(plugin_dir_path( __FILE__ ) . $script),
+      true
+    );
+
+    wp_enqueue_script('my-blocks-admin');
+
+    wp_register_script(
       'my-blocks',
       plugins_url(
         $script,
@@ -138,7 +160,7 @@ class My_Blocks {
       'name'            => 'my/acf',
       'title'           => __('03 - ACF', $this->domain),
       'description'     => __('A Gutenberg block example registered with the ACF plugin', $this->domain),
-      'render_template' => plugin_dir_path(__FILE__) . 'templates/03-acf.php',
+      'render_template' => plugin_dir_path(__FILE__) . 'templates/acf.php',
       'category'        => $this->category,
       'supports'        => array(
         'align'           => false,
@@ -161,6 +183,18 @@ class My_Blocks {
         'reusable'        => false
       ),
     ));
+    // Register the ACF block with an iframe preview
+    acf_register_block_type(array(
+      'name'            => 'my/acf-iframe-preview',
+      'title'           => __('07 - ACF iFrame Preview', $this->domain),
+      'description'     => __('A Gutenberg block example registered with the ACF plugin with an iFrame preview', $this->domain),
+      'render_callback' => array($this, 'block_render_callback'),
+      'category'        => $this->category,
+      'supports'        => array(
+        'align'           => false,
+        'customClassName' => false
+      ),
+    ));
   }
 
   /**
@@ -172,11 +206,94 @@ class My_Blocks {
     }
     ob_start();
     $path = plugin_dir_path(__FILE__);
-    $path .= 'templates/06-block-template.php';
+    $path .= 'templates/block-template.php';
     include($path);
     $html = ob_get_contents();
     ob_end_clean();
     return $html;
+  }
+
+  /**
+   * Render ACF Gutenberg block callback
+   */
+  public function block_render_callback(
+    $block, $content = '', $is_preview = false, $post_id = 0
+  ) {
+    if (preg_match('#^acf/my-(.+)#', $block['name'], $matches)) {
+      $block_name = $matches[1];
+    } else {
+      return;
+    }
+    global $post;
+    $global_post = $post;
+    if ( ! $post instanceof WP_Post || $post->ID !== $post_id) {
+      $post = get_post($post_id);
+    }
+    ob_start();
+    // $path = get_template_directory();
+    // $path = rtrim($path, '/');
+    $path = plugin_dir_path(__FILE__);
+    $path = "{$path}/templates/{$block_name}.php";
+    if (file_exists($path)) {
+      include($path);
+    }
+    $html = ob_get_contents();
+    ob_end_clean();
+    $post = $global_post;
+    if ( ! $is_preview) {
+      echo $html;
+      return;
+    }
+    // Otherwise output for Gutenberg block iframe
+    $id = "my_{$block['id']}";
+    $html = "<div data-id=\"{$id}\" class=\"my-block-preview\">{$html}</div>";
+  ?>
+<script>
+  window.<?php echo $id; ?> = function() {
+    var iframe = document.getElementById('<?php echo $id; ?>');
+    var doc = iframe.contentWindow.document;
+    doc.body.innerHTML = <?php echo json_encode($html); ?>;
+    iframe.classList.add('my-block-iframe--loaded');
+  };
+</script>
+<iframe
+  class="my-block-iframe"
+  id="<?php echo esc_attr($id); ?>"
+  src="<?php echo home_url('/?my-block-preview'); ?>"
+  onload="<?php echo "setTimeout(function(){{$id}();},1);"; ?>"
+  scrolling="no"></iframe>
+  <?php
+  }
+
+  private function is_preview() {
+    return is_user_logged_in() && isset($_GET['my-block-preview']);
+  }
+
+  /**
+   * Action: `wp_head`
+   */
+  public function wp_head() {
+    if ($this->is_preview()) {
+      show_admin_bar(false);
+      $path = plugin_dir_path(__FILE__);
+      $path .= 'my-blocks-iframe.js';
+      if (file_exists($path)) {
+        $contents = file_get_contents($path, true);
+        echo '<script>',$contents,'</script>';
+      }
+    }
+  }
+
+  /**
+   * Filter: `template_include`
+   */
+  function template_include($template) {
+    if ($this->is_preview()) {
+      $path = plugin_dir_path(__FILE__);
+      $path .= 'templates/block-preview.php';
+      $template = $path;
+    }
+    return $template;
   }
 
   /**

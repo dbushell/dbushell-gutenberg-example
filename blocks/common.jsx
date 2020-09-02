@@ -10,17 +10,17 @@ const category = 'my-blocks';
 const domain = 'my-domain';
 
 // Custom `<BlockControls>` to toggle between "Edit" and "Preview"
-const PreviewControls = props => {
+const PreviewControls = (props) => {
   const {onClick} = props;
   const PreviewButton = (
     <Button
       label={__('Preview', domain)}
-      icon="welcome-view-site"
+      icon='welcome-view-site'
       onClick={onClick}
     />
   );
   const EditButton = (
-    <Button label={__('Edit', domain)} icon="edit" onClick={onClick} />
+    <Button label={__('Edit', domain)} icon='edit' onClick={onClick} />
   );
   return (
     <BlockControls>

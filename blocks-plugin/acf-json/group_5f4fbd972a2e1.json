@@ -1,0 +1,43 @@
+{
+  "key": "group_5f4fbd972a2e1",
+  "title": "07 - ACF iFrame Preview",
+  "fields": [
+      {
+          "key": "field_5f4fbd972ca93",
+          "label": "Say hello once again",
+          "name": "text",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+          },
+          "default_value": "Hello, Gutenberg!",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+      }
+  ],
+  "location": [
+      [
+          {
+              "param": "block",
+              "operator": "==",
+              "value": "acf\/my-acf-iframe-preview"
+          }
+      ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1599061413
+}

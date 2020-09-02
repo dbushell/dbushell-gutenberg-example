@@ -1,4 +1,4 @@
-(function () {
+(function (window, document) {
   // Reference node
   var $preview;
 
@@ -50,4 +50,4 @@
     }
   }
   onFrame();
-})();
+})(window, document);

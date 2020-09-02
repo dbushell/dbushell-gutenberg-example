@@ -1,6 +1,6 @@
 {
   "name": "dbushell-gutenberg-example",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "WordPress Gutenberg example blocks #wordpress #react",
   "main": "webpack.config.js",
   "scripts": {
@@ -29,9 +29,9 @@
   "homepage": "https://github.com/dbushell/dbushell-gutenberg-example#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",

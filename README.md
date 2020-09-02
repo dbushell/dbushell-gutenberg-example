@@ -67,6 +67,10 @@ The sixth example implements a [block template](https://developer.wordpress.org/
 
 [See my blog article](https://dbushell.com/2020/04/24/wordpress-gutenberg-react-and-advanced-custom-fields/) for the rational behind this method.
 
+## 07 - ACF IFrame Preview
+
+The seventh example takes the ACF block from **example three** and renders it inside an iframe like **example five**.
+
 * * *
 
 ## Notes on Webpack

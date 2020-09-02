@@ -1,5 +1,7 @@
 <?php
 
+// 06 - Block Template
+
 $textBlock = $block['innerBlocks'][0];
 
 $acfBlock = $block['innerBlocks'][1];

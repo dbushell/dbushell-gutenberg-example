@@ -9,4 +9,4 @@ import BlockTemplate from './06-block-template';
 
 const blocks = [Basic, BlockTemplate, IFramePreview, TextControl, PreviewMode];
 
-blocks.forEach(block => registerBlockType(block.name, block));
+blocks.forEach((block) => registerBlockType(block.name, block));

@@ -6,7 +6,7 @@ import {InnerBlocks} from '@wordpress/block-editor';
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';
 
-const BlockEdit = props => {
+const BlockEdit = (props) => {
   const innerProps = {
     template: [
       ['my/text-control', {text: __('Hello, Template!', domain)}],
@@ -15,13 +15,13 @@ const BlockEdit = props => {
     templateLock: 'all'
   };
   return (
-    <div class="my-block-template">
+    <div class='my-block-template'>
       <InnerBlocks {...innerProps} />
     </div>
   );
 };
 
-const BlockSave = props => {
+const BlockSave = (props) => {
   return <InnerBlocks.Content />;
 };
 

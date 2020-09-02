@@ -5,9 +5,9 @@ import React from 'react';
 import {__} from '@wordpress/i18n';
 import {category, domain} from './common';
 
-const Block = props => {
+const Block = (props) => {
   return (
-    <div className="my-block">
+    <div className='my-block'>
       <p>{__('Hello, Gutenberg!', domain)}</p>
     </div>
   );
