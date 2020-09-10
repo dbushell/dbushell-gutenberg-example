@@ -2,18 +2,25 @@
   // Reference node
   var $preview;
 
+  function postHeight(height) {
+    window.parent.postMessage(
+      {
+        iframe: $preview.dataset.id,
+        height: height
+      },
+      '*'
+    );
+  }
+
   function onReady() {
-    if ('ResiazeObserver' in window) {
+    if ('ResizeObserver' in window) {
       // Use observer events for optimal performance
       function onResize(entries) {
         entries.forEach(function resize(entry) {
-          window.parent.postMessage(
-            {
-              iframe: $preview.dataset.id,
-              height: entry.contentRect.height
-            },
-            '*'
-          );
+          const newHeight = entry.contentRect.height;
+          if (newHeight > 0) {
+            postHeight(newHeight);
+          }
         });
       }
       var observer = new window.ResizeObserver(onResize);
@@ -21,13 +28,10 @@
     } else {
       // Fallback to window resize event
       function onResize() {
-        window.parent.postMessage(
-          {
-            iframe: $preview.dataset.id,
-            height: $preview.getBoundingClientRect().height
-          },
-          '*'
-        );
+        const newHeight = $preview.getBoundingClientRect().height;
+        if (newHeight > 0) {
+          postHeight(newHeight);
+        }
       }
       window.addEventListener('resize', onResize);
       window.setTimeout(onResize, 100);
