@@ -133,6 +133,4 @@ I have another example starter project:
 
 * * *
 
-## Credits / License
-
-MIT licensed | Copyright © 2020 [David Bushell](https://dbushell.com) | [@dbushell](https://twitter.com/dbushell)
+[MIT License](/LICENSE) | Copyright © 2020 [David Bushell](https://dbushell.com)
