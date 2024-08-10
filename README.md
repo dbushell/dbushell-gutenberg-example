@@ -1,11 +1,5 @@
 # WordPress Gutenberg Example Blocks
 
-[![npm version](https://badge.fury.io/js/dbushell-gutenberg-example.svg)](https://badge.fury.io/js/dbushell-gutenberg-example)
-
-**Work in progress!**
-
-Follow [my blog](https://dbushell.com/blog/) and [@dbushell](https://twitter.com/dbushell) for updates.
-
 ### The Blocks
 
   1. [Basic](#01---basic)
